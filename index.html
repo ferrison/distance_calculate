@@ -1,1 +1,100 @@
-<p>Hello, world</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расстояние от точки до плоскости</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Расстояние от точки до плоскости</h1>
+        <form id="distanceForm">
+            <h3>Координаты точки A</h3>
+            <input type="number" id="x1" placeholder="x1" required>
+            <input type="number" id="y1" placeholder="y1" required>
+            <input type="number" id="z1" placeholder="z1" required>
+            <h3>Координаты точки B</h3>
+            <input type="number" id="x2" placeholder="x2" required>
+            <input type="number" id="y2" placeholder="y2" required>
+            <input type="number" id="z2" placeholder="z2" required>
+            <h3>Координаты точки C</h3>
+            <input type="number" id="x3" placeholder="x3" required>
+            <input type="number" id="y3" placeholder="y3" required>
+            <input type="number" id="z3" placeholder="z3" required>
+            <h3>Координаты точки P</h3>
+            <input type="number" id="x4" placeholder="x4" required>
+            <input type="number" id="y4" placeholder="y4" required>
+            <input type="number" id="z4" placeholder="z4" required>
+            <button type="button" onclick="calculateDistance()">Вычислить расстояние</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculateDistance() {
+            // Получение значений координат точек
+            const x1 = parseFloat(document.getElementById('x1').value);
+            const y1 = parseFloat(document.getElementById('y1').value);
+            const z1 = parseFloat(document.getElementById('z1').value);
+
+            const x2 = parseFloat(document.getElementById('x2').value);
+            const y2 = parseFloat(document.getElementById('y2').value);
+            const z2 = parseFloat(document.getElementById('z2').value);
+
+            const x3 = parseFloat(document.getElementById('x3').value);
+            const y3 = parseFloat(document.getElementById('y3').value);
+            const z3 = parseFloat(document.getElementById('z3').value);
+
+            const x4 = parseFloat(document.getElementById('x4').value);
+            const y4 = parseFloat(document.getElementById('y4').value);
+            const z4 = parseFloat(document.getElementById('z4').value);
+
+            // Вычисление векторов AB и AC
+            const AB = [x2 - x1, y2 - y1, z2 - z1];
+            const AC = [x3 - x1, y3 - y1, z3 - z1];
+
+            // Вычисление нормали к плоскости (векторное произведение AB и AC)
+            const normal = [
+                AB[1] * AC[2] - AB[2] * AC[1],
+                AB[2] * AC[0] - AB[0] * AC[2],
+                AB[0] * AC[1] - AB[1] * AC[0]
+            ];
+
+            // Коэффициенты уравнения плоскости
+            const a = normal[0];
+            const b = normal[1];
+            const c = normal[2];
+            const d = -(a * x1 + b * y1 + c * z1);
+
+            // Вычисление расстояния от точки P до плоскости
+            const distance = Math.abs(a * x4 + b * y4 + c * z4 + d) / Math.sqrt(a * a + b * b + c * c);
+
+            // Вывод результата
+            document.getElementById('result').innerText = `Отклонение четвертой точки от плоскости точек 1,2,3: ${distance.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

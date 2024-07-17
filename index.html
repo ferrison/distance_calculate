@@ -32,6 +32,13 @@
 <body>
     <div class="container">
         <h1>Расстояние от точки до плоскости</h1>
+        <details>
+            <summary>Заданные x, y</summary>
+            <p id="p1"></p>
+            <p id="p2"></p>
+            <p id="p3"></p>
+            <p id="p4"></p>
+        </details>
         <form id="distanceForm">
             <h3>Введите z первой точки </h3>
             <input type="number" id="z1" placeholder="z1" required>
@@ -46,22 +53,28 @@
         <div class="result" id="result"></div>
     </div>
     <script>
+        const x1 = 1;
+        const y1 = 1;
+
+        const x2 = 2;
+        const y2 = 1;
+
+        const x3 = 1;
+        const y3 = 2;
+
+        const x4 = 1;
+        const y4 = 1;
+
+        document.getElementById('p1').innerText = `Первая точка: ${x1}; ${y1}`;
+        document.getElementById('p2').innerText = `Вторая точка: ${x2}; ${y2}`;
+        document.getElementById('p3').innerText = `Третья точка: ${x3}; ${y3}`;
+        document.getElementById('p4').innerText = `Четвертая точка: ${x4}; ${y4}`;
+
         function calculateDistance() {
             // Получение значений координат точек
-            const x1 = 1;
-            const y1 = 1;
             const z1 = parseFloat(document.getElementById('z1').value);
-
-            const x2 = 2;
-            const y2 = 1;
             const z2 = parseFloat(document.getElementById('z2').value);
-
-            const x3 = 1;
-            const y3 = 2;
             const z3 = parseFloat(document.getElementById('z3').value);
-
-            const x4 = 1;
-            const y4 = 1;
             const z4 = parseFloat(document.getElementById('z4').value);
 
             // Вычисление векторов AB и AC

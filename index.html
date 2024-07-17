@@ -33,43 +33,35 @@
     <div class="container">
         <h1>Расстояние от точки до плоскости</h1>
         <form id="distanceForm">
-            <h3>Координаты точки A</h3>
-            <input type="number" id="x1" placeholder="x1" required>
-            <input type="number" id="y1" placeholder="y1" required>
+            <h3>Введите z первой точки </h3>
             <input type="number" id="z1" placeholder="z1" required>
-            <h3>Координаты точки B</h3>
-            <input type="number" id="x2" placeholder="x2" required>
-            <input type="number" id="y2" placeholder="y2" required>
+            <h3>Введите z второй точки </h3>
             <input type="number" id="z2" placeholder="z2" required>
-            <h3>Координаты точки C</h3>
-            <input type="number" id="x3" placeholder="x3" required>
-            <input type="number" id="y3" placeholder="y3" required>
+            <h3>Введите z третьей точки </h3>
             <input type="number" id="z3" placeholder="z3" required>
-            <h3>Координаты точки P</h3>
-            <input type="number" id="x4" placeholder="x4" required>
-            <input type="number" id="y4" placeholder="y4" required>
+            <h3>Введите z четвертой точки </h3>
             <input type="number" id="z4" placeholder="z4" required>
-            <button type="button" onclick="calculateDistance()">Вычислить расстояние</button>
+            <button type="button" onclick="calculateDistance()">Вычислить отклонение</button>
         </form>
         <div class="result" id="result"></div>
     </div>
     <script>
         function calculateDistance() {
             // Получение значений координат точек
-            const x1 = parseFloat(document.getElementById('x1').value);
-            const y1 = parseFloat(document.getElementById('y1').value);
+            const x1 = 1;
+            const y1 = 1;
             const z1 = parseFloat(document.getElementById('z1').value);
 
-            const x2 = parseFloat(document.getElementById('x2').value);
-            const y2 = parseFloat(document.getElementById('y2').value);
+            const x2 = 2;
+            const y2 = 1;
             const z2 = parseFloat(document.getElementById('z2').value);
 
-            const x3 = parseFloat(document.getElementById('x3').value);
-            const y3 = parseFloat(document.getElementById('y3').value);
+            const x3 = 1;
+            const y3 = 2;
             const z3 = parseFloat(document.getElementById('z3').value);
 
-            const x4 = parseFloat(document.getElementById('x4').value);
-            const y4 = parseFloat(document.getElementById('y4').value);
+            const x4 = 1;
+            const y4 = 1;
             const z4 = parseFloat(document.getElementById('z4').value);
 
             // Вычисление векторов AB и AC
